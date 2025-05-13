@@ -13,16 +13,7 @@ lat=37.3514
 lon=127.9453
 url=f"https://api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&lang=kr&appid={apikey}"
 
-result=requests.get(url)
-response=result.json()
-if os.path.isfile('wether.csv'):
-    os.remove('weather.csv')
-list=[]
-i=response['list'][0]
-print(i)
-NewMessage=i['weather'][0]['description']
-print(NewMessage)
-bot=telegram.Bot(token=token)
+
 telegram_api_url = f"https://api.telegram.org/bot{token}/sendMessage"
 payload = {
     "chat_id": id,
